@@ -60,7 +60,7 @@ const Dashboard = () => {
                 <div className="text-center mb-20 relative z-10">
 
 
-                    <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-600 tracking-tight leading-tight">
+                    <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-600 tracking-tight leading-tight">
                         Create Stunning CVs<br className="hidden sm:block" /> in Minutes
                     </h1>
                     <div className="mt-10 sm:mt-14 flex flex-col sm:flex-row gap-5 justify-center items-center">
