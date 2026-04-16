@@ -82,7 +82,20 @@ const AiChatButton = () => {
 
             {/* CHAT WINDOW */}
             {open && (
-                <div className="fixed bottom-24 right-6 w-96 h-[500px] bg-white dark:bg-gray-900 shadow-2xl rounded-xl border border-gray-300 dark:border-gray-700 flex flex-col z-50">
+                <div className="
+        fixed
+        bottom-24 right-6
+        w-96 h-[500px]
+
+        max-sm:w-[90%]
+        max-sm:right-1/2 max-sm:translate-x-1/2
+        max-sm:h-[70vh]
+
+        bg-white dark:bg-gray-900
+        shadow-2xl rounded-xl
+        border border-gray-300 dark:border-gray-700
+        flex flex-col z-50
+    ">
 
                     {/* HEADER */}
                     <div className="p-3 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center text-gray-800 dark:text-white font-semibold">

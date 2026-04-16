@@ -59,7 +59,7 @@ const Header = ({ user }) => {
                             duration: 2,
                         }}
                     >
-                        👋 Welcome, {user?.username || "User"}
+                        👋 Welcome, {}
                     </motion.div>
 
                     {/* Logout button hover animation */}
