@@ -174,7 +174,11 @@ const RedSidebarTemplate = ({ cvData, paginated = true }) => {
             {first && (
                 <>
                     {hasValue(cvData.photo) && (
-                        <img src={cvData.photo} className="w-24 h-24 rounded-full mx-auto mb-4" />
+                        <img
+                            src={cvData.photo}
+                            alt="Profile"
+                            className="w-24 h-24 rounded-full mx-auto mb-4"
+                        />
                     )}
 
                     <h2 className="text-center font-bold">{cvData.fullName}</h2>

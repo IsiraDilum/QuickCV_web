@@ -3,8 +3,6 @@ import React, { useRef, useEffect, useState } from "react";
 const ClassicTemplate = ({ cvData }) => {
 
     const hasValue = (v) => v && String(v).trim() !== "";
-
-    const containerRef = useRef(null);
     const sectionRefs = useRef([]);
     const [pages, setPages] = useState([]);
 
@@ -207,7 +205,7 @@ const ClassicTemplate = ({ cvData }) => {
 
         setPages(newPages);
 
-    }, [cvData]);
+    }, [cvData, sections]);
 
     /* ================= RENDER ================= */
 

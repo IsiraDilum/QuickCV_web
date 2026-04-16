@@ -40,7 +40,7 @@ const AiChatButton = () => {
 
         try {
 
-            const res = await axios.post("http://localhost:5000/api/ai/chatbot", {
+            const res = await axios.post(process.env.REACT_APP_API_URL + "/api/ai/chatbot", {
                 message: message,
                 cvData: {}
             });

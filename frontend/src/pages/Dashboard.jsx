@@ -6,7 +6,6 @@ import img2 from "../images/img2.png";
 import img3 from "../images/img3.png";
 import {
     Loader2,
-    ArrowRight,
     Wand2,
     LayoutTemplate,
     Info,
@@ -16,7 +15,7 @@ import Footer from "../components/page/Footer";
 
 const Dashboard = () => {
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(false);
+    const [loading] = useState(false);
     const handleCreateCV = () => {
         navigate("/create-cv");
     };
@@ -33,7 +32,7 @@ const Dashboard = () => {
         username: "Isira",
         email: "isira@example.com",
         lastCV: savedCV?.fullName ? `${savedCV.fullName}'s CV` : null
-    }), []);
+    }), [savedCV]);
 
 
 

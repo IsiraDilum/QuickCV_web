@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import Header from "../components/page/Header";
 import Footer from "../components/page/Footer";
-import img2 from "../images/img2.png";
+
 
 const features = [
     {

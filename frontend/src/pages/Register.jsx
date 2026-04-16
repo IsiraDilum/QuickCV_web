@@ -32,7 +32,7 @@ const Register = () => {
     const handleGoogleSuccess = async (credentialResponse) => {
         setLoading(true);
         try {
-            const res = await axios.post("http://localhost:5000/api/auth/google", {
+            const res = await axios.post(process.env.REACT_APP_API_URL + "/api/auth/google", {
                 token: credentialResponse.credential,
             });
 
@@ -62,7 +62,7 @@ const Register = () => {
         setIsError(false);
 
         try {
-            const res = await axios.post("http://localhost:5000/api/auth/register", form);
+            const res = await axios.post(process.env.REACT_APP_API_URL + "/api/auth/register", form);
 
             setMessage(res.data.message || "Registration successful! Please sign in.");
             setIsError(false);

@@ -71,7 +71,7 @@ const CreateCV = () => {
     });
 
 // ✅ layout state
-    const [layout, setLayout] = useState(null);
+    const [, setLayout] = useState(null);
 
 // ✅ calculate layout when form changes
     useEffect(() => {
@@ -97,7 +97,7 @@ const CreateCV = () => {
     const [aiAction, setAiAction] = useState("");
     const [aiError, setAiError] = useState("");
 
-    const API_BASE = "http://localhost:5000/api/ai";
+    const API_BASE = process.env.REACT_APP_API_URL + "/api/ai";
 
     const handleChange = (e) => {
         setForm(prev => ({
@@ -384,27 +384,6 @@ const CreateCV = () => {
         }
     };
 
-    const handleExtractSkills = async () => {
-        if (!hasValue(form.summary)) {
-            setAiError("Please enter or generate summary first.");
-            return;
-        }
-
-        const data = await runAIRequest(
-            "Extracting skills...",
-            "/extract-skills",
-            { summary: form.summary }
-        );
-
-        if (data) {
-            // Save AI extracted skills
-            setForm((prev) => ({
-                ...prev,
-                aiSkills: data
-            }));
-        }
-    };
-
     const handleAutoCorrectProjectDescription = async (index) => {
         const project = form.projects[index];
 
@@ -469,6 +448,9 @@ const CreateCV = () => {
                         aiButtonClass={aiButtonClass}
                         loadingAI={loadingAI}
                         aiAction={aiAction}
+                        handleCategorySkillChange={handleCategorySkillChange}
+                        addCategorySkill={addCategorySkill}
+
                     />
                 );
 

@@ -56,7 +56,7 @@ function VerificationPage() {
         try {
             setLoading(true);
 
-            const response = await fetch("http://localhost:5000/api/auth/verify-otp", {
+            const response = await fetch(process.env.REACT_APP_API_URL + "/api/auth/verify-otp", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, otp: otpCode }),
@@ -81,7 +81,7 @@ function VerificationPage() {
         try {
             setResending(true);
 
-            const response = await fetch("http://localhost:5000/api/auth/send-otp", {
+            const response = await fetch(process.env.REACT_APP_API_URL + "/api/auth/send-otp", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email }),
