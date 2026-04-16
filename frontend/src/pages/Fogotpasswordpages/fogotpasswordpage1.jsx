@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logoImage from "../../assets/LOGO.jpg";
-import FGImage from "../../assets/fogotpasswordpage1image.jpg";
+import FGImage from "../../assets/fogotpasswordpage1image.png";
 import { useNavigate } from "react-router-dom";
 
 function FogotpasswordPage1() {
