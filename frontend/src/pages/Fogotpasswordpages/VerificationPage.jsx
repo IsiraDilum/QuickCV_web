@@ -17,7 +17,7 @@ function VerificationPage() {
     if (!email) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 p-4">
-                <p className="text-red-500 text-lg font-medium">
+                <p className="text-red-500 text-base sm:text-lg font-medium text-center">
                     ❌ Email not found. Please go back and try again.
                 </p>
             </div>
@@ -56,11 +56,14 @@ function VerificationPage() {
         try {
             setLoading(true);
 
-            const response = await fetch(process.env.REACT_APP_API_URL + "/api/auth/verify-otp", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, otp: otpCode }),
-            });
+            const response = await fetch(
+                process.env.REACT_APP_API_URL + "/api/auth/verify-otp",
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, otp: otpCode }),
+                }
+            );
 
             const data = await response.json();
 
@@ -81,11 +84,14 @@ function VerificationPage() {
         try {
             setResending(true);
 
-            const response = await fetch(process.env.REACT_APP_API_URL + "/api/auth/send-otp", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email }),
-            });
+            const response = await fetch(
+                process.env.REACT_APP_API_URL + "/api/auth/send-otp",
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email }),
+                }
+            );
 
             const data = await response.json();
 
@@ -103,36 +109,42 @@ function VerificationPage() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 p-4">
-            <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
-                <div className="flex flex-col items-center mb-6">
+        <div className="min-h-screen flex items-center justify-center px-3 py-6 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950">
+            <div className="w-full max-w-md mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-200 dark:border-gray-700">
+
+                {/* Logo */}
+                <div className="flex flex-col items-center mb-5">
                     <img
                         src={logoImage}
                         alt="CV Create Logo"
-                        className="w-14 h-14 rounded-lg mb-2"
+                        className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg mb-2"
                     />
-                    <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
+                    <h2 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white">
                         CV Create
                     </h2>
                 </div>
 
+                {/* Image */}
                 <div className="flex justify-center mb-4">
                     <img
                         src={mailImage}
                         alt="Verification"
-                        className="w-40"
+                        className="w-24 sm:w-40"
                     />
                 </div>
 
-                <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-2">
+                {/* Title */}
+                <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-900 dark:text-white mb-2">
                     Verification Code
                 </h3>
+
                 <p className="text-sm text-center text-gray-500 dark:text-gray-400 mb-6">
                     Enter the 6-digit code sent to your email
                 </p>
 
+                {/* OTP Form */}
                 <form onSubmit={handleSubmit}>
-                    <div className="flex justify-center gap-3 mb-5">
+                    <div className="flex justify-center gap-2 sm:gap-3 mb-5">
                         {code.map((digit, index) => (
                             <input
                                 key={index}
@@ -142,11 +154,12 @@ function VerificationPage() {
                                 value={digit}
                                 onChange={(e) => handleChange(e, index)}
                                 onKeyDown={(e) => handleKeyDown(e, index)}
-                                className="w-12 h-14 text-center text-xl font-semibold rounded-lg border border-gray-300 dark:border-gray-600 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="w-10 h-12 sm:w-12 sm:h-14 text-center text-lg sm:text-xl font-semibold rounded-lg border border-gray-300 dark:border-gray-600 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                             />
                         ))}
                     </div>
 
+                    {/* Resend */}
                     <div className="text-center mb-5">
                         <button
                             type="button"
@@ -158,10 +171,11 @@ function VerificationPage() {
                         </button>
                     </div>
 
+                    {/* Submit */}
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                        className="w-full py-3 sm:py-3.5 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     >
                         {loading && <Loader2 size={20} className="animate-spin" />}
                         {loading ? "Verifying..." : "Verify"}
