@@ -7,6 +7,7 @@ import ProfessionalDetails from "./collect_data/ProfessionalDetails";
 import EducationExperienceProjects from "./collect_data/EducationExperienceProjects";
 import ReviewCV from "./collect_data/ReviewCV";
 import { calculateCVSections } from "../utils/cvLayoutCalculator";
+import CropImageModal from "./collect_data/CropImageModal";
 
 const CreateCV = () => {
     const navigate = useNavigate();
@@ -96,6 +97,8 @@ const CreateCV = () => {
     const [loadingAI, setLoadingAI] = useState(false);
     const [aiAction, setAiAction] = useState("");
     const [aiError, setAiError] = useState("");
+    const [cropImage, setCropImage] = useState(null);
+    const [showCrop, setShowCrop] = useState(false);
 
     const API_BASE = process.env.REACT_APP_API_URL + "/api/ai";
 
@@ -285,11 +288,16 @@ const CreateCV = () => {
         const file = e.target.files[0];
 
         if (file) {
-            setForm({
-                ...form,
-                photo: URL.createObjectURL(file),
-            });
+            const imageUrl = URL.createObjectURL(file);
+            setCropImage(imageUrl);
+            setShowCrop(true);
         }
+    };
+    const handleCropDone = (croppedImage) => {
+        setForm((prev) => ({
+            ...prev,
+            photo: croppedImage,
+        }));
     };
 
     const handleSubmit = (e) => {
@@ -569,6 +577,13 @@ const CreateCV = () => {
                         </div>
 
                     </form>
+                    {showCrop && (
+                        <CropImageModal
+                            image={cropImage}
+                            onClose={() => setShowCrop(false)}
+                            onCropDone={handleCropDone}
+                        />
+                    )}
 
                 </div>
 
