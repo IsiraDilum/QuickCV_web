@@ -68,8 +68,14 @@ const Dashboard = () => {
                             type="button"
                             onClick={handleCreateCV}
                             disabled={loading}
-                            className="group relative inline-flex items-center gap-3 px-10 py-6 bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-bold text-xl rounded-2xl shadow-2xl hover:shadow-3xl focus:outline-none focus:ring-4 focus:ring-indigo-500/40 transition-all transform hover:-translate-y-1.5 disabled:opacity-60 overflow-hidden"
-                        >
+                            className="group relative inline-flex items-center gap-3
+px-6 py-3 text-base
+sm:px-8 sm:py-4 sm:text-lg
+md:px-10 md:py-6 md:text-xl
+bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700
+text-white font-bold rounded-2xl shadow-2xl hover:shadow-3xl
+focus:outline-none focus:ring-4 focus:ring-indigo-500/40
+transition-all transform hover:-translate-y-1.5 disabled:opacity-60 overflow-hidden">
                             <span className="absolute inset-0 bg-gradient-to-r from-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
 
                             {loading ? (
