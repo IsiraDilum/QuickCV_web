@@ -109,7 +109,7 @@ const About = () => {
 
                             <p>
                                 The application also includes AI-powered features such as summary
-                                generation, grammar improvement, and skill extraction to make the
+                                generation and grammar improvement to make the
                                 resume-building experience faster and smarter.
                             </p>
                         </div>
